@@ -4,11 +4,15 @@
   "description": "cucayo api",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/.bin/nodemon --exec node index.js",
     "test": "test"
   },
   "author": "Klughertz Jonathan <klughertz.j@gmail.com> (http://klugjo.github.io/)",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "express-graphql": "^0.6.4",
     "graphql": "^0.9.5",
     "pg": "^6.1.5"
   },

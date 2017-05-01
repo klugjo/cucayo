@@ -1,8 +1,18 @@
 const {graphql} = require('graphql');
-const ncSchema = require('./schema');
+const graphqlHTTP = require('express-graphql');
+const cucSchema = require('./schema');
 
-const query = process.argv[2];
+require('dotenv').config()
 
-graphql(ncSchema, query).then(result => {
-    console.log(result);
+const app = require('express')();
+
+app.use('/graphql', graphqlHTTP({
+    schema: cucSchema,
+    graphiql: true
+}));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Dev environment on http://localhost:${PORT}/graphql`);
 });
+

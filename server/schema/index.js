@@ -14,8 +14,8 @@ const RootQueryType = new GraphQLObjectType({
     }
 });
 
-const ncSchema = new GraphQLSchema({
+const cucSchema = new GraphQLSchema({
     query: RootQueryType
 });
 
-module.exports = ncSchema;
+module.exports = cucSchema;
