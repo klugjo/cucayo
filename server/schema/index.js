@@ -1,15 +1,24 @@
 const {
     GraphQLSchema,
     GraphQLObjectType,
-    GraphQLString
+    GraphQLString,
+    GraphQLNonNull
 } = require('graphql');
+
+const MeType = require('./types/me');
 
 const RootQueryType = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        hello: {
-            type: GraphQLString,
-            resolve: () => 'world'
+        me: {
+            type: MeType,
+            description: 'Get the current user',
+            args: {
+                key: {type: new GraphQLNonNull(GraphQLString)}
+            },
+            resolve: () => {
+                // get from db
+            }
         }
     }
 });
