@@ -2,13 +2,22 @@ const {graphql} = require('graphql');
 const graphqlHTTP = require('express-graphql');
 const cucSchema = require('./schema');
 
-require('dotenv').config()
+const nodeEnv = process.env.TYPE || 'development';
+
+require('dotenv').config();
+
+const pg = require('pg');
+const pgConfig = require('./config/pg')[nodeEnv];
+const pgPool = new pg.Pool(pgConfig);
 
 const app = require('express')();
 
 app.use('/graphql', graphqlHTTP({
     schema: cucSchema,
-    graphiql: true
+    graphiql: true,
+    context: {
+        pgPool
+    }
 }));
 
 const PORT = process.env.PORT || 3000;

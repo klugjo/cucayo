@@ -1,10 +1,11 @@
 const {
     GraphQLSchema,
     GraphQLObjectType,
-    GraphQLString,
+    GraphQLInt,
     GraphQLNonNull
 } = require('graphql');
 
+const pgdb = require('../database/pgdb');
 const MeType = require('./types/me');
 
 const RootQueryType = new GraphQLObjectType({
@@ -14,10 +15,11 @@ const RootQueryType = new GraphQLObjectType({
             type: MeType,
             description: 'Get the current user',
             args: {
-                key: {type: new GraphQLNonNull(GraphQLString)}
+                id: {type: new GraphQLNonNull(GraphQLInt)}
             },
-            resolve: () => {
-                // get from db
+            resolve: (obj, {id}, {pgPool}) => {
+                console.log(`graphql: requesting user with id: ${id}`);
+                return pgdb(pgPool).getUser({id});
             }
         }
     }
