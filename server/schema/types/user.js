@@ -10,7 +10,7 @@ const pgdb = require('../../database/pgdb');
 const recipe = require('./recipe');
 
 module.exports = new GraphQLObjectType({
-    name: 'MeType',
+    name: 'UserType',
     fields: {
         id: {type: GraphQLID},
         firstname: {type: GraphQLString},

@@ -15,6 +15,7 @@ module.exports = new GraphQLObjectType({
         status: {type: new GraphQLNonNull(GraphQLInt)},
         cooked: {type: new GraphQLNonNull(GraphQLInt)},
         instructions: {type: GraphQLString},
+        ingredients: {type: GraphQLString},
         link: {type: GraphQLString},
         createdAt: {type: GraphQLString}
     }

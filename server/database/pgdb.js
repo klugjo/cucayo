@@ -23,6 +23,17 @@ module.exports = pgPool => {
                 res => humps.camelizeKeys(res.rows),
                 err => console.error(err)
             );
+        },
+
+        getShoppingListsByUserId({userId}) {
+            console.log(`pg: requesting shopping lists for user_id: ${userId}`);
+            return pgPool.query(`
+                select * from shopping_list
+                where user_id = $1
+            `, [userId]).then(
+                res => humps.camelizeKeys(res.rows),
+                err => console.error(err)
+            );
         }
     }
 };
