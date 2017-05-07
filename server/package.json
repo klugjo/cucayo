@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon --exec node index.js",
-    "test": "test"
+    "test": "test",
+    "generate-schema": "node -e \"require('./utils/generateSchemaJson.js')()\""
   },
   "author": "Klughertz Jonathan <klughertz.j@gmail.com> (http://klugjo.github.io/)",
   "license": "MIT",
