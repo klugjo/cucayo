@@ -34,6 +34,18 @@ module.exports = pgPool => {
                 res => humps.camelizeKeys(res.rows),
                 err => console.error(err)
             );
+        },
+
+        getRecipesByShoppingListId(shoppingListId) {
+            console.log(`pg: requesting recipes for shopping list: ${shoppingListId}`);
+            return pgPool.query(`
+                select r.* from recipe r
+                inner join shopping_list_recipe s on s.recipe_id = r.id
+                where s.shopping_list_id = $1
+            `, [shoppingListId]).then(
+                res => humps.camelizeKeys(res.rows),
+                err => console.error(err)
+            );
         }
     }
 };
