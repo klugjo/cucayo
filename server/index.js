@@ -1,6 +1,8 @@
 const {graphql} = require('graphql');
 const graphqlHTTP = require('express-graphql');
+
 const cucSchema = require('./schema');
+const generateSchemaJson = require('./utils/generateSchemaJson');
 
 const nodeEnv = process.env.TYPE || 'development';
 
@@ -11,6 +13,10 @@ const pgConfig = require('./config/pg')[nodeEnv];
 const pgPool = new pg.Pool(pgConfig);
 
 const app = require('express')();
+
+if (nodeEnv === 'development') {
+    generateSchemaJson();
+}
 
 app.use('/graphql', graphqlHTTP({
     schema: cucSchema,

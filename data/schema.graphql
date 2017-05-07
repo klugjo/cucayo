@@ -1,0 +1,41 @@
+schema {
+  query: RootQueryType
+}
+
+type RecipeType {
+  id: ID
+  userId: Int!
+  name: String!
+  status: Int!
+  cooked: Int!
+  instructions: String
+  ingredients: String
+  link: String
+  createdAt: String
+}
+
+type RootQueryType {
+  # Get the current user
+  user(id: Int!): UserType
+
+  # Get the shopping lists
+  shoppingList(userId: Int!): [ShoppingListType]
+}
+
+type ShoppingListType {
+  id: ID
+  userId: Int!
+  remarks: String
+  title: String
+  createdAt: String
+  recipes: [RecipeType]
+}
+
+type UserType {
+  id: ID
+  firstname: String
+  lastname: String
+  email: String!
+  createdAt: String
+  recipes: [RecipeType]
+}
