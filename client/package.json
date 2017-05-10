@@ -12,9 +12,12 @@
   "author": "Klughertz Jonathan <klughertz.j@gmail.com> (http://klugjo.github.io/)",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-relay-plugin": "0.10.0",
     "node-sass": "^4.3.0",
     "react": "15.4.2",
     "react-dom": "15.4.2",
+    "react-relay": "0.10.0",
     "sass-loader": "^6.0.2",
     "semantic-ui-css": "^2.2.10",
     "semantic-ui-react": "^0.68.3"

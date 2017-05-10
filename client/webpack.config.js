@@ -58,6 +58,6 @@ module.exports = {
         css: ['style.css'],
         js: [ "bundle.js"],
       }
-    }),
+    })
   ]
 };
