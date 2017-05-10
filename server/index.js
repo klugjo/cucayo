@@ -1,4 +1,5 @@
 const {graphql} = require('graphql');
+const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
 
 const cucSchema = require('./schema');
@@ -18,7 +19,7 @@ if (nodeEnv === 'development') {
     generateSchemaJson();
 }
 
-app.use('/graphql', graphqlHTTP({
+app.use('/graphql', cors(), graphqlHTTP({
     schema: cucSchema,
     graphiql: true,
     context: {

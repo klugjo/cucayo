@@ -4,6 +4,7 @@ import {AppContainer} from 'react-hot-loader';
 import Relay from 'react-relay';
 import App from './App.jsx';
 import 'semantic-ui-css/semantic.min.css';
+import './styles/styles.css';
 
 render(<AppContainer><App/></AppContainer>, document.querySelector("#app"));
 
@@ -19,14 +20,6 @@ if (module && module.hot) {
   });
 }
 
-console.log(
-  Relay.QL`
-    query Test {
-      user(id: 1) {
-        firstname,
-        lastname,
-        email
-      }
-    }
-  `
+Relay.injectNetworkLayer(
+  new Relay.DefaultNetworkLayer('http://localhost:3000/graphql')
 );

@@ -11,6 +11,7 @@
   "author": "Klughertz Jonathan <klughertz.j@gmail.com> (http://klugjo.github.io/)",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.3",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "express-graphql": "^0.6.4",
