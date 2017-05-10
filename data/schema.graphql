@@ -15,11 +15,8 @@ type RecipeType {
 }
 
 type RootQueryType {
-  # Get the current user
-  user(id: Int!): UserType
-
-  # Get the shopping lists
-  shoppingList(userId: Int!): [ShoppingListType]
+  # Root level query
+  store: StoreType
 }
 
 type ShoppingListType {
@@ -29,6 +26,14 @@ type ShoppingListType {
   title: String
   createdAt: String
   recipes: [RecipeType]
+}
+
+type StoreType {
+  # Get the current user
+  user(id: Int!): UserType
+
+  # Get the shopping lists
+  shoppingList(userId: Int!): [ShoppingListType]
 }
 
 type UserType {

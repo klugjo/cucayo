@@ -13,6 +13,29 @@
           "description": null,
           "fields": [
             {
+              "name": "store",
+              "description": "Root level query",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "StoreType",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StoreType",
+          "description": null,
+          "fields": [
+            {
               "name": "user",
               "description": "Get the current user",
               "args": [
